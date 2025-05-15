@@ -9,12 +9,6 @@ Automate my full Linux setup with one script — installs essential software, co
 
 ---
 
-# 🐧 Basic Linux Setup Script
-
-A complete bash script to automate setting up your Linux environment with essential tools, GNOME extensions, apps from APT, Snap, and `.deb` downloads, along with system configurations like fstab mounting and shell tweaks.
-
----
-
 ## 🚀 Features
 
 * 📦 Installs a full suite of APT packages including development tools, multimedia apps, and utilities.
