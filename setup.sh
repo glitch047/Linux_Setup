@@ -99,12 +99,14 @@ echo_header() {
 install_apt_packages() {
   echo_header "Updating apt & installing packages"
   sudo apt update && sudo apt upgrade -y
-  sudo apt install -y "\${APT_PACKAGES[@]}"
+  for pkg in "${APT_PACKAGES[@]}"; do
+    sudo apt install -y "$pkg" || echo "Failed to install apt package: $pkg"
+  done
 }
 
 install_snap_packages() {
   echo_header "Installing snapd and snap packages"
-  sudo apt install -y snapd
+  sudo apt install -y snapd || echo "Failed to install snapd"
   sudo ln -sf /var/lib/snapd/snap /snap
   sudo systemctl enable --now snapd apparmor snapd.apparmor
 
@@ -121,9 +123,9 @@ download_and_install_debs() {
   for url in "${DEB_URLS[@]}"; do
     file=$(basename "$url" | sed 's/?.*//')
     echo "Fetching $url -> $PROGRAM_DIR/$file"
-    wget -qO "$file" "$url"
+    wget -qO "$file" "$url" || { echo "Failed to download: $url"; continue; }
     if [[ "$file" == *.deb ]]; then
-      sudo dpkg -i "$file" || sudo apt-get install -f -y
+      sudo dpkg -i "$file" || { echo "Failed to install .deb: $file"; sudo apt-get install -f -y; }
     fi
     # leave zips or other downloaded files in ProgramFiles for manual install
   done
