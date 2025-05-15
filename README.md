@@ -1,4 +1,11 @@
-Here's a GitHub-style `README.md` for your **Basic Linux Setup Script** project:
+# 🐧 Basic Linux Setup Script
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://img.shields.io/badge/status-stable-brightgreen)]()
+[![Platform](https://img.shields.io/badge/platform-linux-blue)]()
+[![Shell](https://img.shields.io/badge/shell-bash-lightgrey)]()
+
+Automate my full Linux setup with one script — installs essential software, configures GNOME extensions, manages `.deb` and Snap installations, sets up drive mounting, and preps your development environment.
 
 ---
 
@@ -132,7 +139,3 @@ sudo reboot
 
 * Some GNOME extensions may need manual installation from [extensions.gnome.org](https://extensions.gnome.org/).
 * `.zip` packages (e.g., SigPloit) are downloaded but not automatically extracted or installed.
-
----
-
-Let me know if you want a `.md` file download version or embedded badges!
